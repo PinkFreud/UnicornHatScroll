@@ -16,10 +16,19 @@ the flip call which is used to ensure that the bitarray definitions in uhscroll_
 way round for easy reading'''
 
 flip = [7,6,5,4,3,2,1,0]
+_scrollrotation = 270
 
+
+def rotation(r=_scrollrotation):
+    global _scrollrotation
+    if r in [0, 90, 180, 270]:
+        _scrollrotation = r
+        return True
+    else:
+        raise ValueError('Rotation must be 0, 90, 180 or 270 degrees')
 
 def show_letter(letter,colour,brightness): #displays a single letter on th UH
-	UH.rotation(270)		
+	UH.rotation(_scrollrotation)		
 	for i in range(8):
 		for j in range(8):
 			if letter[j][i]:
